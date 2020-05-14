@@ -4,6 +4,7 @@ namespace Rose\Composer;
 
 use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
+use Composer\Repository\InstalledRepositoryInterface;
 
 class ExtensionInstaller extends LibraryInstaller
 {
@@ -26,14 +27,17 @@ class ExtensionInstaller extends LibraryInstaller
 
 		$host = $repos->findPackage('rsthn/rose-core', '*');
 		if (!$host)
-			throw new \InvalidArgumentException('Host package "rsthn/rose-core" was not found.');
+			throw new \InvalidArgumentException('Host package \'rsthn/rose-core\' was not found.');
 
-		//return $this->composer->getConfig()->get('vendor-dir').'/rsthn/rose-core/src/Ext/'.$this->getExtensionName($package->getPrettyName());
-		return $this->composer->getConfig()->get('vendor-dir').'/rsthn/rose-core/src/Ext';
+		$extra = $package->getExtra();
+		if (!isset($extra['rose-ext-identifier']))
+			throw new \InvalidArgumentException('Package extra field \'rose-ext-identifier\' was not found.');
+
+		return $this->composer->getConfig()->get('vendor-dir').'/rsthn/rose-core/src/Ext/'.$extra['rose-ext-identifier'];
     }
 
     public function supports ($packageType)
     {
         return 'rose-extension' === $packageType;
-    }
+	}
 };
