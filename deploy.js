@@ -50,7 +50,7 @@ run('echo Published: v'+package.version+' >>messages.log')
 .then(r => run('del composer.lock'))
 
 .then(r => run('git commit -a -m "Preparing for release: '+package.version+'"'))
-.then(r => run('git push'))
+.then(r => run('git push origin temporal'))
 .then(r => run('git tag -f v' + package.version))
 .then(r => run('git push --tags'))
 .then(r => run('git checkout master'))
@@ -60,5 +60,6 @@ run('echo Published: v'+package.version+' >>messages.log')
 //.then(r => run('git reset'))
 
 .then(() => {
-	console.log('\x1B[92m * Deployment completed.\x1B[0m');
+	console.log();
+	console.log('\x1B[93m * Deployment completed.\x1B[0m');
 });
