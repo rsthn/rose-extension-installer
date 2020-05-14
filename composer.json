@@ -1,26 +1,27 @@
 {
     "name": "rsthn/rose-extension-installer",
-	"description": "Rose Framework - Extension Installer",
-	"homepage": "https://github.com/rsthn/rose-extension-installer",
+    "description": "Rose Framework - Extension Installer",
+    "version": "1.0.0",
+    "homepage": "https://github.com/rsthn/rose-extension-installer",
     "type": "composer-plugin",
-	"license": "Apache-2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Jonathan Palencia",
-			"email": "strikeone88@rsthn.com",
-			"role": "Developer"
+            "email": "strikeone88@rsthn.com",
+            "role": "Developer"
         }
-	],
-	"minimum-stability": "stable",
-	"extra": {
-		"class": "Rose\\Composer\\ExtensionInstallerPlugin"
-	},
-	"require": {
-		"composer-plugin-api": "^1.0"
-	},
-	"require-dev": {
-		"composer/composer": "^1.3"
-	},
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "class": "Rose\\Composer\\ExtensionInstallerPlugin"
+    },
+    "require": {
+        "composer-plugin-api": "^1.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.3"
+    },
     "autoload": {
         "psr-4": {
             "Rose\\Composer\\": "src"

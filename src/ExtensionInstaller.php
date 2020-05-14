@@ -23,12 +23,12 @@ class ExtensionInstaller extends LibraryInstaller
         $repos = $repositoryManager->getLocalRepository();
 		if (!$repos)
 			throw new \InvalidArgumentException('Unable to get local repository.');
-	
+
 		$host = $repos->findPackage('rsthn/rose-core', '*');
 		if (!$host)
 			throw new \InvalidArgumentException('Host package "rsthn/rose-core" was not found.');
 
-        return $host->getTargetDir().'/Ext/'.$this->getExtensionName($package->getPrettyName());
+        return $this->composer->getConfig()->get('vendor-dir').'/rsthn/rose-core/src/Ext/'.$this->getExtensionName($package->getPrettyName());
     }
 
     public function supports ($packageType)
