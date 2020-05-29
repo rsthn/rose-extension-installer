@@ -25,10 +25,6 @@ class ExtensionInstaller extends LibraryInstaller
 		if (!$repos)
 			throw new \InvalidArgumentException('Unable to get local repository.');
 
-		$host = $repos->findPackage('rsthn/rose-core', '*');
-		if (!$host)
-			throw new \InvalidArgumentException('Host package \'rsthn/rose-core\' was not found.');
-
 		$extra = $package->getExtra();
 		if (!isset($extra['rose-ext-identifier']))
 			throw new \InvalidArgumentException('Package extra field \'rose-ext-identifier\' was not found.');
