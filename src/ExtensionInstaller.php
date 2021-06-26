@@ -29,7 +29,7 @@ class ExtensionInstaller extends LibraryInstaller
 		if (!isset($extra['rose-ext-identifier']))
 			throw new \InvalidArgumentException('Package extra field \'rose-ext-identifier\' was not found.');
 
-		return $this->composer->getConfig()->get('vendor-dir').'/rsthn/extensions/'.$extra['rose-ext-identifier'];
+		return 'vendor/rsthn/extensions/'.$extra['rose-ext-identifier'];
     }
 
     public function supports ($packageType)
